@@ -65,10 +65,14 @@ static const char unknown_str[] = "-";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ battery_perc, "bat: %s%% |",           "BAT0" },
-	{ wifi_perc, " wifi: %s%% |",           "wlan0" },
-	{ ram_free, " mem: %s |",           NULL },
-	{ disk_free, " disk: %s |",           "/" },
-    { keymap, " %s |",           NULL },
-	{ datetime, " %s",           "%F %T" },
+	{ battery_state , "[%s] "         , "BAT0"                                  }  ,
+	{ battery_perc  , "%s%% |"        , "BAT0"                                  }  ,
+	{ wifi_perc     , " wifi: %s%% |" , "wlan0"                                 }  ,
+	{ temp          , " %s°C/"        , "/sys/class/thermal/thermal_zone0/temp" }  ,
+	{ temp          , "%s°C |"        , "/sys/class/thermal/thermal_zone1/temp" }  ,
+	{ ram_free      , " mem: %s |"    , NULL                                    }  ,
+	{ disk_free     , " disk: %s |"   , "/"                                     }  ,
+	{ run_command   , " %s |"         , "volume"                                }  ,
+    { keymap        , " %s |"         , NULL                                    }  ,
+	{ datetime      , " %s"           , "%F %T"                                 }  ,
 };
